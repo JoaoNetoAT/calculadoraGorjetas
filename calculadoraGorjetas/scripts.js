@@ -9,10 +9,9 @@ function calculateTip(event) {
         return;
     }
 
-    if (serviceQuality == 0) {
-        document.getElementById('each2').style.display = "block"
-    } else {
-        document.getElementById('each2').style.display = "none"
+    if(serviceQuality == '0'){
+        alert("O Serviço foi Péssimo - Não merece Gorjetas")
+        return;
     }
 
     if(numOfPeople == "" | numOfPeople <= 1) {
@@ -21,16 +20,20 @@ function calculateTip(event) {
     } else {
         document.getElementById('each').style.display = "block"
     }
-    
-    let total = (bill * serviceQuality) /numOfPeople;
+
+    let total = (bill * serviceQuality);
     total = total.toFixed(2);
     document.getElementById('tip').innerHTML = total;
     document.getElementById('totalTip').style.display = "block";
 
-
+    let totalPessoa = ((bill * serviceQuality) /numOfPeople) + (bill / numOfPeople);
+    totalPessoa = totalPessoa.toFixed(2);
+    document.getElementById('tip2').innerHTML = totalPessoa;
+    document.getElementById('totalPeople').style.display = "block";
 }
 
 document.getElementById('totalTip').style.display = "none";
+document.getElementById('totalPeople').style.display = "none";
 document.getElementById('each').style.display = "none";
 
 document.getElementById('tipsForm').addEventListener('submit', calculateTip);
