@@ -4,9 +4,15 @@ function calculateTip(event) {
     let serviceQuality = document.getElementById('serviceQuality').value;
     let numOfPeople = document.getElementById('people').value;
 
-    if(bill == '' | serviceQuality == 0){
+    if(bill == '' | serviceQuality < 0){
         alert("Por favor, preencha todos os campos")
         return;
+    }
+
+    if (serviceQuality == 0) {
+        document.getElementById('each2').style.display = "block"
+    } else {
+        document.getElementById('each2').style.display = "none"
     }
 
     if(numOfPeople == "" | numOfPeople <= 1) {
@@ -15,7 +21,7 @@ function calculateTip(event) {
     } else {
         document.getElementById('each').style.display = "block"
     }
-
+    
     let total = (bill * serviceQuality) /numOfPeople;
     total = total.toFixed(2);
     document.getElementById('tip').innerHTML = total;

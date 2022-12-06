@@ -20,34 +20,36 @@
                     <p>Quanto ficou a conta?</p>
                 </label>
                 <p>
-                    R$ <input type="number" placeholder="100" name="bill" id="bill" class="formImput" required>
+                    R$ <input type="number" step="0.01" min="0" placeholder="100" name="bill" id="bill" class="formImput" required>
                 </p>
                 <label for="serviceQuality">
                     <p>Como foi seu Serviço?</p>
                 </label>
                 <p>
                     <select name="serviceQuality" id="serviceQuality" class="formSelect" required>
-                        <option disabled selected value="0">-- Escolha uma Opção</option>
-                        <option value="0.3">30% - Incrível</option>
-                        <option value="0.2">20% - Bom</option>
-                        <option value="0.15">15% - Aceitável</option>
-                        <option value="0.1">10% - Ruim</option>
-                        <option value="0.05">05% - Péssimo</option>
+                        <option disabled selected value="-1">-- Escolha uma Opção</option>
+                        <option value="0.3">  30%   - Espetacular</option>
+                        <option value="0.2">  20%   - Incrível</option>
+                        <option value="0.15">  15%   - Bom</option>
+                        <option value="0.1">  10%   - Aceitável</option>
+                        <option value="0.05">  05%   - Ruim</option>
+                        <option value="0">Péssimo - Não vai ganhar Gorjeta</option>
                     </select>
                 </p>
                 <label for="people">
                     <p>Quantas pessoas vão dividir a conta?</p>
                 </label>
                 <p>
-                    <input type="number" placeholder="1" name="people" id="people" class="formImput" required>
+                    <input type="number" name="people" id="people" min="1" class="formImput" required>
                 </p>
                 <button type="submit" class="formSubmit">Calcular</button>
             </form>
         </div>
         <div id="totalTip">
-            Gorjeta total:
+            Valor da Gorjeta:
             R$<span id="tip">0.00</span>
             <span id="each">cada</span>
+            <span id="each2">O Serviço foi Péssimo - Não merece Gorjetas</span>
         </div>
     </div>
     <script type="text/javascript" src="scripts.js"></script>
